@@ -1,2 +1,3 @@
-# vedioStitching
-solve vedioStitching problem
+# 多目相机的视频拼接
+# 环境搭建
+

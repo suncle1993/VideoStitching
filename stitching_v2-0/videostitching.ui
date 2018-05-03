@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>videoStitching</class>
+ <widget class="QWidget" name="videoStitching">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>251</width>
+    <height>286</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>视频拼接演示</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>191</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>视频拼接</string>
+   </property>
+   <widget class="QPushButton" name="twoCamsVideoStitchingBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>141</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>双摄像头视频拼接</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="threeCamsVideoStitchingBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>141</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>三摄像头视频拼接</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="fourCamsVideoStitchingBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>141</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>四摄像头视频拼接</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
