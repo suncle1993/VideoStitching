@@ -1,0 +1,7 @@
+opencv2.4.6关于摄像头分辨率的设置
+http://bbs.csdn.net/topics/390809759
+
+问题解决了，打开摄像头后立即设置摄像头的分辨率
+videoCapture.open(cameraNumber);
+        videoCapture.set(CV_CAP_PROP_FRAME_WIDTH,1080);
+        videoCapture.set(CV_CAP_PROP_FRAME_HEIGHT,960);就可以了

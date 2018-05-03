@@ -1,0 +1,15 @@
+多个USB视频捕捉的连接问题
+http://blog.sina.com.cn/s/blog_48720e900100rqmx.html
+http://post.smzdm.com/p/9140/
+当进行多个USB视频捕捉时，不是每个USB插口都能插上一个USB摄像头。如果这样做的话，结果可能是屏幕一片空白，什么都没有，因为摄像头初始化会出错，导致程序不可正常运行。
+ 
+先谈谈USB的传输速度问题吧。
+一个USB2.0的理论传输速度为480Mbps，也就是60MBps。当然，实际上不可能达到这个理论的最大值。一般只能达到这个值的70%左右，读入速度为30-42MBps,写入速度为25-30MBps。当我们用一个摄像头采集时，假设采集一帧的分辨率为640*480（这个分辨率是大多数摄像头都支持的分辨率），图像是24位的位图，采集帧率为30Fps，那么所需的带宽为640*480*24*30bps,即640*480*24*30/8/1024/1024=26.37MBps。可见，当插上一个USB摄像头的时候，按照这种方式进行采集时，就已经占了读入的大半速度，当插上两个时，结果可想而知，要么很卡，要么程序就无法运行。
+ 
+那这样的话，岂不是不能进行多个摄像头的同时采集？实际上，刚才说的传输速度，是针对一个USB Controller而言。一台电脑上面一般不可能只有一个USB Controller的。所以，当多个摄像头插在不同的USB Controller上面时，就能进行流畅的视频采集了。在这里，还有必要说下USB Controller的问题。一台电脑上面，可能有多个USB插口，但是并不等同与有相同数目的USB Controller。以我的笔记本为例，上面有4个USB插口，而只有两个USB Controller。稍微查一下就能得知，一个USB Controller上面连了一个USB插口，另外一个USB Controller上面连了3个USB插口。为什么会这样呢，详细讲解下USB的结构。
+ 
+我们知道，主板上的南桥是连接外设和北桥的。USB Controller就是接在了南桥上面。根据我的理解，一般是OHCI(Open Host Controller Interface)或者UHCI(Universal Host Controller Interface)加上EHCI(Enhanced Host Controller Interface)来作为一个USB Controller。OHCI或UHCI提供全速和低速的USB传输，而EHCI提供高速的USB传输。USB Controller会根据连接的设备来自动选取是OHCI(或UHCI)还是EHCI。然后一个USB Controller上面接Hub，Hub上面连了多个USB插口。我们电脑上面的USB插口就是Hub上面分出来的。
+ 
+因此，不管有多少个USB插口在电脑上，只有连在了不同的USB Controller上面，才能保证视频的流畅性。这点可以借助驱动精灵来查看是否不同的摄像头接在了不同的USB Controller上面。驱动精灵的硬件检测选项单里面，点击详细信息，然后端口->USB，里面就有各种详细的连接情况。一般一个摄像头，名称为Composite Device，可是查看一个USB Controller上面是不是连接了多个Composite Device，以确保一对一的连接。
+ 
+这样，DirectShow中多摄像头采集时，才能保证连接端口没有出现问题。

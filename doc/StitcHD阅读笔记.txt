@@ -1,0 +1,63 @@
+StitcHD
+1、概要(executive summary)
+	目标：全景视频系统panoramic video stream
+	执行:从相机得到图像，分析图像关系，拼接
+		分析重叠区域计算每张照片需要调整多少
+			homography 单应矩阵	每一个都独立计算
+			
+2、背景(Project background)
+	MindTree
+	鱼眼镜头fish-eye lens camera
+	standard, webcam-like cameras		不适用鱼眼镜头使用标准的网络摄像头
+	使用CPU并行计算
+	
+3、最终设计(Final design)
+	System description
+		usb摄像头  ->  相机校准  ->  帧捕获  ->  帧变换和拼接  ->  图形用户界面显示
+		
+	Complete module-wise specifications
+		硬件
+			Cameras:4 x Logitech Orbit AF USB 2.0 Cameras
+			Computer Hardware:
+		软件
+			Camera Calibration相机校准
+			Camera Capture Threads相机捕捉线程
+			Stitching Pipeline拼接流水线
+			Data Flow between Modules模块间的数据流
+			Homographier单应矩阵
+			Feature Detection特征检测
+			Feature Matching特征匹配
+			Homography Calculation单应矩阵计算
+			Stitching Module拼接模块
+			Bilinear Interpolation双线性插值
+			Image Blending图像融合
+			Image Tinting图像着色
+			Graphical User Interface图形用户界面
+	Camera Calibration设计验证方法
+	
+	
+4、实现说明(Implementation notes)
+	Software Architecture软件体系结构
+	Software Implementation软件实现
+		MainWindow (GUI)主界面
+		DisplayCameras (GUI)相机显示
+		SettingsWindow (GUI)设置界面
+		DisplayStitcHD显示拼接界面
+		VideoStitcher (StitcHD)
+		VideoStitcher视频拼接
+		Timer计时器
+		CameraCapture相机捕捉
+		HomographierController单应性控制器
+		Homographier单应矩阵
+		ImageStitcher图像拼接
+		stitch_gpu GPU拼接
+	Hardware Implementation硬件实现
+		Camera Connections摄像头链接
+		Mounting固定方式
+		
+	
+5、实验结果(Experimental results)
+6、用户手册(User’s Manuals)
+7、任务报告(Course debriefing)
+8、预算(Budget)
+9、附录(Appendices)

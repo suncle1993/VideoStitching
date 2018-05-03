@@ -1,0 +1,11 @@
+用opencv追踪物体（比如拿在手上的球）
+https://www.youtube.com/watch?v=2i2bt-YSlYQ
+
+Traffic counting based on OpenCV
+https://www.youtube.com/watch?v=z1Cvn3_4yGo  （只有视频）
+
+
+stitcHD demo	（实时视频拼接）	可以按照commit顺序学习
+https://github.com/lukeyeager/StitcHD	（源代码）
+https://www.youtube.com/watch?v=3in4e_yYOIA		（视频1 demo1）
+https://www.youtube.com/watch?v=mMcrOpVx9aY		（视频2 demo2）
